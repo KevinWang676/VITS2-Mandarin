@@ -57,7 +57,7 @@ if __name__ == "__main__":
     total_files = sum([len(files) for r, d, files in os.walk(parent_dir)])
     # resample audios
     # 2023/4/21: Get the target sampling rate
-    with open("./configs/finetune_speaker.json", 'r', encoding='utf-8') as f:
+    with open("./configs/config.json", 'r', encoding='utf-8') as f:
         hps = json.load(f)
     target_sr = hps['data']['sampling_rate']
     processed_files = 0
@@ -81,8 +81,8 @@ if __name__ == "__main__":
                 if lang not in list(lang2token.keys()):
                     print(f"{lang} not supported, ignoring\n")
                     continue
-                text = lang2token[lang] + text + lang2token[lang] + "\n"
-                # speaker_annos.append(save_path + "|" + speaker + "|" + text)
+                text = "ZH|" + text + "\n"#
+                #text = lang2token[lang] + text + lang2token[lang] + "\n"
                 speaker_annos.append(save_path + "|" + text)
                 
                 processed_files += 1
@@ -103,7 +103,7 @@ if __name__ == "__main__":
     if len(speaker_annos) == 0:
         print("Warning: no short audios found, this IS expected if you have only uploaded long audios, videos or video links.")
         print("this IS NOT expected if you have uploaded a zip file of short audios. Please check your file structure or make sure your audio language is supported.")
-    with open("short_character_anno.txt", 'w', encoding='utf-8') as f:
+    with open("./filelists/short_character_anno.list", 'w', encoding='utf-8') as f:
         for line in speaker_annos:
             f.write(line)
 
