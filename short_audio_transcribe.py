@@ -81,7 +81,7 @@ if __name__ == "__main__":
                 if lang not in list(lang2token.keys()):
                     print(f"{lang} not supported, ignoring\n")
                     continue
-                text = "ZH|" + text + "\n"#
+                text = text + "\n"#
                 #text = lang2token[lang] + text + lang2token[lang] + "\n"
                 speaker_annos.append(save_path + "|" + speaker + "|" + text)
                 
