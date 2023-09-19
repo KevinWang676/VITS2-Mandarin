@@ -10,8 +10,7 @@ if __name__ == "__main__":
         "--filelists",
         nargs="+",
         default=[
-            "filelists/train.txt",
-            "filelists/val.txt",
+            "filelists/short_character_anno.list",
         ],
     )
     parser.add_argument("--text_cleaners", nargs="+", default=["chinese_cleaners"])
