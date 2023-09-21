@@ -17,15 +17,10 @@ if __name__ == "__main__":
         langs = ["[ZH]"]
     new_annos = []
     # Source 1: transcribed short audios
-    if os.path.exists("short_character_anno.list"):
+    if os.path.exists("./filelists/short_character_anno.list"):
         with open("short_character_anno.list", 'r', encoding='utf-8') as f:
             short_character_anno = f.readlines()
             new_annos += short_character_anno
-    # Source 2: transcribed long audio segments
-    if os.path.exists("./long_character_anno.txt"):
-        with open("./long_character_anno.txt", 'r', encoding='utf-8') as f:
-            long_character_anno = f.readlines()
-            new_annos += long_character_anno
 
     # Get all speaker names
     speakers = []
@@ -71,11 +66,11 @@ if __name__ == "__main__":
 
         final_annos = cleaned_new_annos
         # save annotation file
-        with open("./final_annotation_train.txt", 'w', encoding='utf-8') as f:
+        with open("./filelists/final_annotation_train.txt", 'w', encoding='utf-8') as f:
             for line in final_annos:
                 f.write(line)
         # save annotation file for validation
-        with open("./final_annotation_val.txt", 'w', encoding='utf-8') as f:
+        with open("./filelists/final_annotation_val.txt", 'w', encoding='utf-8') as f:
             for line in cleaned_new_annos:
                 f.write(line)
         print("finished")
