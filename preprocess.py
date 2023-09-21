@@ -18,7 +18,7 @@ if __name__ == "__main__":
     new_annos = []
     # Source 1: transcribed short audios
     if os.path.exists("./filelists/short_character_anno.list"):
-        with open("short_character_anno.list", 'r', encoding='utf-8') as f:
+        with open("./filelists/short_character_anno.list", 'r', encoding='utf-8') as f:
             short_character_anno = f.readlines()
             new_annos += short_character_anno
 
