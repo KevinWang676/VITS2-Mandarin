@@ -26,3 +26,4 @@ fugashi
 num2words
 Cython==0.29.21
 openai-whisper
+protobuf==3.20.*
