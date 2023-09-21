@@ -62,7 +62,7 @@ if __name__ == "__main__":
                 continue
             cleaned_text = text._clean_text(txt, hps['data']['text_cleaners']).replace("[ZH]", "")
             cleaned_text += "\n" if not cleaned_text.endswith("\n") else ""
-            cleaned_new_annos.append(path + "|" + cleaned_text)
+            cleaned_new_annos.append(path + "|0|" + cleaned_text)
 
         final_annos = cleaned_new_annos
         # save annotation file
